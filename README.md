@@ -31,7 +31,7 @@ This module will give you a brief introduction to basic tasks using the command-
 - [List of Common Commands](http://www.lagmonster.org/docs/unix/intro-137.html) (also [here](http://www.math.utah.edu/lab/unix/unix-commands.html))
 
 ## Accessing the Command-Line
-In order to use the command-line, you will need to open a **command shell** (a.k.a. a _command prompt_). This is a program that provides the interface to type commands into. You should have installed a command shell (hereafter "the terminal") as part of [module 1](https://github.com/info201-w17/module1-setup).
+In order to use the command-line, you will need to open a **command shell** (a.k.a. a _command prompt_). This is a program that provides the interface to type commands into. You should have installed a command shell (hereafter "the terminal") as part of [module 1](../../../module1-setup).
 
 Once you open up the shell (Terminal or Git Bash), you should see something like this (red notes are mine):
 
