@@ -205,5 +205,71 @@ But what happens if you forget the closing quote? You keep hitting "enter" but y
 - If that doesn't work, try hitting the `esc` key, or typing `exit`, `q`, or `quit`. That should cover most cases.
 
 
+### Wildcards
+One last note about working with files. Since you'll often work with multiple files, command shells offer some shortcuts to talking about files with the same name. In particular, you can use an asterisk `*` as a **wildcard** when naming files. This symbol acts like a "wild" or "blank" tile in Scrabble--it can be "replaced" by any character (or any set of characters) when determining what file(s) you're talking about.
+
+
+- `*.txt` refers to all files that have `.txt` at the end. **`cat *.txt`** would output the contents of every `.txt` file in the folder.
+
+- `hello*` refers to all files whose names start with `hello`.
+
+- `hello*.txt` refer to all files that start with `hello` and end with `.txt`, no matter how many characters are in the middle (including none!)
+
+- `*.*` refers to all files that have an extension.
+
+
+## Directing Output
+So far all these commands have either modified the file system or printed some output to the terminal. But we can specify that we want the output to go somewhere else (e.g., to save it to a file for later). These are called **redirects**. Redirect commands are usually single punctuation marks, because the commands want to be as quick to type (but hard to read!) as possible.
+
+- `>` says "take output of command and put it in this file". For example `echo "Hello World" > hello.txt` will put the outputted text "Hello World" into a file called `hello.txt`. Note that this will replace any previous content in the file, or create the file if it doesn't exist. This is a great way to save the output of your command-line work!
+
+- `>>` says "take output of command and _append_ it to the end of this file". This will keep you from overwriting previous content.
+
+- `<` says "take input from this file". This is a much less common redirect.
+
+- `|` says "take the output of this command and send it to the next command". For example, **`cat hello.txt | less`** would take the output of the `hello.txt` file and send it to the `less` program, which gives that arrow-based "scrolling" interface that man pages use.
+
+Redirects are a more "advanced" usage of the command-line, but now you know what those random symbols mean if you see them!
+
+## Shell Scripts
+Shell commands are a way to tell the computer what to do&mdash;in effect, program it!
+
+But often the instructions we want a computer to perform are more complex than a single command (even with redirects), or are something we want to be able to save and repeat later (beyond just looking it up in the `history`). It is useful if we can write down all the instructions in a single place, and then order the computer to _execute_ all of those instructions at once. This list of instructions is called a **script**, with a list of shell commands called a **shell scripts**. Executing or "running" a script will cause each instruction (line of code) to be run _in order, one after the other_, just as if we had typed them in one by one. Writing scripts allows you to save, share, and re-use your work&mdash;by saving instructions in a file, we can easily check, change, and re-execute the list of instructions (assuming we haven't caused any irreversible side effects).
+
+Bash shell scripts (also known as "Bash scripts") are generally written in files that end in the `.sh` extension (for **sh**ell). Once you've written a shell script, you can execute it on the command-line simply by typing the file name as the command:
+
+```bash
+./my-script.sh
+```
+
+(The `./` indicates that we want to execute the file in the current folder, instead of looking for a program elsewhere on the computer as normally happens with commands).
+
+- **Important** On OS X or Linux you will need to give the file permission to be executed to run it. Use the `chmod` (**ch**ange **mod**e) command to add (`+`) e**x**ecution permissions to the file:
+
+    ```bash
+    chmod +x my-script.sh
+    ```
+
+For _portability_ (e.g., to work well across computers), the first line of any Bash shell script should be a a [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) that indicates which shell should be used:
+
+```bash
+#!/usr/bin/env bash
+```
+
+After that, you can begin listing the command your script will run, one after another (each on a new line):
+
+```bash
+#!/usr/bin/env bash
+
+# anything after a '#' is a comment, and will not be executed
+echo "Hello world"
+echo "This is a second command"
+```
+
+- You can include blank lines between your command for readability, and add _comments_ (notes to yourself) by starting a line with `#`.
+
+Shell scripts are an easy way to make "macros" or shortcuts for commands you want to run, and are common ways of sharing computer instructionsn with others.
+
+
 ## Conclusion
-Don't hesitate to experiment with any of these commands, though I suggest making files to experiment with moving, deleting, editing, etc. To practice using basic command-line syntax, see [exercise-1](exercise-1).
+Don't hesitate to experiment with any of the commands in this module, though I suggest making files to experiment with moving, deleting, editing, etc. To practice using basic command-line syntax, see [exercise-1](exercise-1).
