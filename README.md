@@ -21,6 +21,9 @@ This module will give you a brief introduction to basic tasks using the command-
 - [File Commands](#file-commands)
   - [Learning New Commands](#learning-new-commands)
   - [Dealing With Errors](#dealing-with-errors)
+  - [Wildcards](#wildcards)
+- [Directing Output](#directing-output)
+- [Shell Scripts](#shell-scripts)
 - [Conclusion](#conclusion)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
